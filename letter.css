@@ -1,0 +1,389 @@
+/*==============================
+      GOOGLE FONT
+==============================*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+
+height:100vh;
+
+overflow:hidden;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+background:linear-gradient(135deg,#FFF8F5,#F8EDE8,#F3D8CF);
+
+position:relative;
+
+}
+
+/*==============================
+      FLOATING HEARTS
+==============================*/
+
+.background-hearts{
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+overflow:hidden;
+
+}
+
+.background-hearts::before{
+
+content:"❤️ 💕 🤍 💖 🌹 ❤️ 💕";
+
+position:absolute;
+
+width:100%;
+
+display:flex;
+
+justify-content:space-around;
+
+font-size:26px;
+
+animation:floatHearts 15s linear infinite;
+
+opacity:.25;
+
+}
+
+@keyframes floatHearts{
+
+0%{
+
+transform:translateY(100vh);
+
+}
+
+100%{
+
+transform:translateY(-120vh);
+
+}
+
+}
+
+/*==============================
+      CONTAINER
+==============================*/
+
+.container{
+
+position:relative;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+/*==============================
+      ENVELOPE
+==============================*/
+
+.envelope{
+
+position:relative;
+
+width:380px;
+
+height:250px;
+
+cursor:pointer;
+
+transition:.6s;
+
+}
+
+/* Back */
+
+.envelope::before{
+
+content:"";
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+background:#f5d4ca;
+
+border-radius:12px;
+
+box-shadow:0 25px 60px rgba(0,0,0,.18);
+
+}
+
+/* Left Fold */
+
+.envelope::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+bottom:0;
+
+border-left:190px solid #efc1b5;
+
+border-top:125px solid transparent;
+
+border-bottom:125px solid transparent;
+
+z-index:3;
+
+}
+
+/* Right Fold */
+
+.top-flap{
+
+position:absolute;
+
+right:0;
+
+bottom:0;
+
+width:0;
+
+height:0;
+
+border-right:190px solid #e7b0a2;
+
+border-top:125px solid transparent;
+
+border-bottom:125px solid transparent;
+
+z-index:3;
+
+}
+
+/* Top Flap */
+
+.top-flap::before{
+
+content:"";
+
+position:absolute;
+
+left:-190px;
+
+top:-125px;
+
+width:0;
+
+height:0;
+
+border-left:190px solid transparent;
+
+border-right:190px solid transparent;
+
+border-top:130px solid #C97C6D;
+
+transform-origin:top;
+
+transition:1s;
+
+z-index:10;
+
+}
+
+/*==============================
+      LETTER
+==============================*/
+
+.letter{
+
+position:absolute;
+
+left:20px;
+
+top:20px;
+
+width:340px;
+
+height:210px;
+
+background:white;
+
+border-radius:15px;
+
+padding:25px;
+
+text-align:center;
+
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+
+transition:1s;
+
+z-index:2;
+
+overflow:auto;
+
+}
+
+.letter h1{
+
+color:#C97C6D;
+
+margin-bottom:15px;
+
+font-size:28px;
+
+}
+
+.letter p{
+
+font-size:15px;
+
+line-height:1.8;
+
+color:#5A3E36;
+
+}
+
+/*==============================
+      BUTTON
+==============================*/
+
+#continueBtn{
+
+margin-top:25px;
+
+padding:14px 35px;
+
+border:none;
+
+background:#C97C6D;
+
+color:white;
+
+font-size:16px;
+
+border-radius:50px;
+
+cursor:pointer;
+
+transition:.35s;
+
+}
+
+#continueBtn:hover{
+
+background:#b86658;
+
+transform:translateY(-3px);
+
+box-shadow:0 15px 35px rgba(201,124,109,.35);
+
+}
+
+/*==============================
+     OPEN ANIMATION
+==============================*/
+
+.envelope.open .top-flap::before{
+
+transform:rotateX(180deg);
+
+}
+
+.envelope.open .letter{
+
+transform:translateY(-180px);
+
+}
+
+/*==============================
+      MOBILE
+==============================*/
+
+@media(max-width:768px){
+
+.envelope{
+
+width:320px;
+
+height:220px;
+
+}
+
+.envelope::after{
+
+border-left:160px solid #efc1b5;
+
+border-top:110px solid transparent;
+
+border-bottom:110px solid transparent;
+
+}
+
+.top-flap{
+
+border-right:160px solid #e7b0a2;
+
+border-top:110px solid transparent;
+
+border-bottom:110px solid transparent;
+
+}
+
+.top-flap::before{
+
+left:-160px;
+
+border-left:160px solid transparent;
+
+border-right:160px solid transparent;
+
+border-top:115px solid #C97C6D;
+
+}
+
+.letter{
+
+width:280px;
+
+left:20px;
+
+height:190px;
+
+padding:18px;
+
+}
+
+.letter h1{
+
+font-size:22px;
+
+}
+
+.letter p{
+
+font-size:14px;
+
+}
+
+}
